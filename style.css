@@ -1,0 +1,254 @@
+/* 1. 全局样式和背景 - 恢复到旧版柔和配色 */
+body {
+    font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /* 恢复：柔和的灰白渐变 */
+    background: linear-gradient(135deg, #f0f2f5 0%, #e0e6ed 100%);
+    margin: 0;
+}
+
+/* 2. 主容器 */
+.container {
+    background-color: #ffffff;
+    padding: 40px 50px;
+    border-radius: 16px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    max-width: 450px;
+    width: 90%;
+    /* 恢复：金色边框 */
+    border: 5px solid #FFD700;
+}
+
+/* 3. 标题 */
+h1 {
+    color: #E91E63;
+    margin-bottom: 10px;
+    font-size: 2.2em;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* 4. 设置页面通用样式 - 恢复橙色系 */
+.setup-section {
+    padding: 20px;
+    margin-bottom: 25px;
+    /* 恢复：橙色系边框 */
+    border: 1px solid #FF9800;
+    border-radius: 10px;
+    /* 恢复：淡黄色背景 */
+    background-color: #fffaf0;
+}
+
+.setup-section h2 {
+    color: #333;
+    font-size: 1.5em;
+    margin-top: 0;
+    border-bottom: 1px solid #FF9800;
+    padding-bottom: 5px;
+}
+
+/* 隐藏的奖品设置内容样式 */
+#prize-setting-content {
+    /* border-top: 1px solid #FF9800; */
+    padding-top: 15px;
+    margin-top: 10px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.input-group input,
+.input-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 1em;
+}
+
+/* 按钮通用样式 */
+.action-button {
+    /* 恢复：橙色按钮 */
+    background-color: #FF9800;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1.1em;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+    font-weight: normal;
+}
+
+.action-button:hover {
+    background-color: #F57C00;
+}
+
+.action-button:active {
+    transform: none;
+    /* 移除精致版的按压动画 */
+}
+
+/* 5. 抽奖信息区 */
+.user-info {
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 15px;
+    padding: 10px;
+    border-bottom: 1px dashed #ccc;
+}
+
+.user-info strong {
+    color: #E91E63;
+}
+
+.rule {
+    /* 恢复：淡橙色规则背景 */
+    background-color: #ffe0b2;
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: 15px;
+    font-weight: bold;
+    /* 恢复：橙色字体 */
+    color: #FF5722;
+}
+
+/* 6. 积分显示 */
+#points-display {
+    font-size: 3.5em;
+    /* 恢复：绿色积分 */
+    color: #4CAF50;
+    font-weight: 900;
+    margin: 10px 0 25px 0;
+    letter-spacing: 2px;
+}
+
+/* 7. 主抽奖按钮 */
+#draw-button {
+    /* 恢复：蓝色按钮 */
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    padding: 18px 30px;
+    font-size: 1.4em;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    box-shadow: 0 4px 15px rgba(33, 150, 243, 0.4);
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+#draw-button:hover:not(:disabled) {
+    background-color: #1976D2;
+    box-shadow: 0 6px 20px rgba(33, 150, 243, 0.6);
+}
+
+#draw-button:disabled {
+    background-color: #BDBDBD;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* 8. 滚动显示区容器 */
+#lottery-machine {
+    position: relative;
+    width: 100%;
+    height: 80px;
+    overflow: hidden;
+    /* 恢复：橙红色边框 */
+    border: 4px solid #FF5722;
+    border-radius: 12px;
+    /* 恢复：淡黄色背景 */
+    background-color: #fff8e1;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 9. 滚动条目列表 */
+#prize-roller {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    transition: transform 0s ease-out;
+}
+
+.prize-item {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 1.6em;
+    font-weight: bolder;
+    color: #333;
+    text-align: center;
+    /* 恢复：灰色虚线 */
+    border-bottom: 1px dashed #ccc;
+    box-sizing: border-box;
+}
+
+.prize-item:last-child {
+    border-bottom: none;
+}
+
+/* 11. 结果文本显示区 */
+.result-text {
+    margin-top: 15px;
+    padding: 10px;
+    font-size: 1.3em;
+    font-weight: bold;
+    border-radius: 8px;
+}
+
+.win-text {
+    /* 恢复：绿色系结果 */
+    color: #4CAF50;
+    background-color: #e8f5e9;
+}
+
+/* 12. 底部功能按钮 */
+#set-next-user-button {
+    /* 恢复：灰蓝色按钮 */
+    background-color: #607D8B !important;
+    margin-top: 20px;
+    padding: 10px 20px !important;
+    font-size: 1em !important;
+}
+
+#clear-all-button {
+    /* 恢复：红色警告按钮 */
+    background-color: #F44336 !important;
+    font-weight: bold;
+}
+
+#back-to-setup-button {
+    /* 恢复：灰蓝色系，与下一位学生按钮保持一致 */
+    background-color: #607D8B !important;
+}
+
+/* 新增：奖品设置的展开/收起按钮的特殊样式 */
+#toggle-prize-setup {
+    background-color: #2196F3;
+    /* 蓝色，区别于橙色的主设置按钮 */
+    margin-bottom: 15px;
+}
+
+#toggle-prize-setup:hover {
+    background-color: #1976D2;
+}
